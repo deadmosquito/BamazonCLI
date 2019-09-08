@@ -31,7 +31,7 @@ function runSearch() {
     inquirer
       .prompt([    
      {
-        name: "item_id",
+        name: "ProductID",
         type: "list",
         message: "Which Item ID would you like to buy?",
         choices: ["1", "2", "3", "4", "5","6","7","8","9","10" ] 
@@ -43,29 +43,28 @@ function runSearch() {
       }
     ])
       .then(function(answer) {
-        var item = answer.prodID
+        var item = answer.productID
         var quantity = answer.purchase
         connection.query(
-            "SELECT * FROM products WHERE Item_ID ='" + item + "'", 
+            "SELECT * FROM products WHERE item_id ='" + item + "'", 
         function(err, results){
             if (err) throw err;
               for (result of results){
-                if(result.Total_Stock> quantity){
-                    var price = result.Price*quantity
+                if(result.stock_quantity > quantity){
+                    var price = result.price*quantity
                      console.log("You're purchase is complete, thank you for your business! Your order total is $" + price);
-                     var newStock = result.Total_Stock-quantity
+                     var newAmount = result.stock_quantity-quantity
                      connection.query("UPDATE products SET ? WHERE Item_ID = '" + item + "'", [
-                      {Total_Stock: newStock},
+                      {stock_quantity: newAmount},
           
                      ]
                       , function (err, result) {
                       if (err) throw err;
-                      // console.log(result.affectedRows + " record(s) updated");
                     });
 
                    }else
                    {
-                    console.log("Bummer, we don't have enough of that item in stock, please try a different quantity.")
+                    console.log("oooh we're sorry but we don't have enough of that item. Please try another amount you'd like to purchase.")
                   
                }
             }

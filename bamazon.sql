@@ -4,15 +4,13 @@ CREATE DATABASE bamazonDB;
 USE bamazonDB;
 
 CREATE TABLE products(
-  item_id INT NOT NULL AUTO_INCREMENT,
-  product_name VARCHAR(45) NULL,
-  department_name VARCHAR(45) NULL,
-  price INT NULL,
-  stock_quantity INT NULL,
-  PRIMARY KEY (item_id)
+  item_id INT (10) PRIMARY KEY AUTO_INCREMENTNOT NOT NULL,
+  product_name VARCHAR(45) NOT NULL,
+  department_name VARCHAR(45) NOT NULL,
+  price DECIMAL(10,2) NOT NULL,
+  stock_quantity INT(10) NOT NULL
 );
-
-Select * FROM products;
+  
 
 INSERT INTO products (item_id, product_name, department_name, price, stock_quantity)
 VALUES ("nintendo switch", "electronics", 299.99, 13),
@@ -25,3 +23,5 @@ VALUES ("nintendo switch", "electronics", 299.99, 13),
         ("chair", "office", 1.99, 35),
         ("chia seeds", "food", 7.99, 9),
         ("bread", "food", 3.99, 23)
+
+        Select * FROM products;
