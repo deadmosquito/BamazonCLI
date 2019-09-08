@@ -88,4 +88,8 @@ function purchaseProducts() {
                 }
             });
         });
+<<<<<<< HEAD
 };
+=======
+};
+>>>>>>> 17f8d584b1cf6455def7386099773249b4081eac
