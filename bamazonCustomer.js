@@ -93,7 +93,7 @@ function inventoryUpdate(newAmount, itemID) {
         { stock_quantity: newAmount },
         function (err, res) {
             if (err) throw err;
-            console.log("\Thanks for shopping with Bamazon!");
+            console.log("Thanks for shopping with Bamazon!");
         });
     connection.end();
 }
