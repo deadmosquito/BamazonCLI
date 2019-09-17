@@ -62,7 +62,7 @@ function purchaseProducts() {
                         var quantity = parseInt(result.stock_quantity);
                         var cost = parseFloat(result.price);
                         // Calculate total sale
-                        var endCost = (cost * amount).toFixed(2);
+                        var endCost = cost * amount;
                         // Query to remove the purchased item from inventory.
                         var newAmount = quantity - amount;
 
@@ -77,7 +77,7 @@ function purchaseProducts() {
                                     " in stock of the " + result.product_name + ". Sorry.");
                                     connection.end();
                                 } else if (quantity > amount, answers.checkout) {
-                                    console.log("Your total will be " + endCost);
+                                    console.log("Your total will be $" + endCost);
                                     inventoryUpdate(newAmount, itemID);
                                 }
                             });
