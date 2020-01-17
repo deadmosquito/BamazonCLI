@@ -30,6 +30,9 @@ node bamazonCustomer.js
 
 * Stay in your terminal to make the "purchases" and follow the prompts.
 
+Example in the following link:
+https://drive.google.com/file/d/12DNVnlpj3X3TPEIQCu7L9JnJPMLUjcKn/view
+
 ## Built With
 
 * Node.js
